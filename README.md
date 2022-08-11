@@ -10,8 +10,9 @@ database = "YOUR_DATABASE"
 table = "YOUR_TABLE"
 query_client = session.client("timestream-query", config=Config(region_name=region))
 query_util = QueryUtil(query_client, database, table)
-# Get the latest location of base station
 query_string = f"SELECT Id FROM {database}.{table} WHERE time >= ago(24h)"
+
+# Run Query
 id_list = query_util.run_query(query_string, True)
 
 ```
