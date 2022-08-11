@@ -1,1 +1,1 @@
-from QueryUtil import QueryUtil
+from .QueryUtil import QueryUtil
