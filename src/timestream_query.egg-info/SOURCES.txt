@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/timestream_query/QueryUtil.py
+src/timestream_query/__init__.py
+src/timestream_query.egg-info/PKG-INFO
+src/timestream_query.egg-info/SOURCES.txt
+src/timestream_query.egg-info/dependency_links.txt
+src/timestream_query.egg-info/top_level.txt

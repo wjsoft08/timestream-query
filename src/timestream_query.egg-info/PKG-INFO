@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: timestream-query
+Version: 1.0.0
+Summary: A small utility class to query timestream to object array quickly
+Home-page: https://github.com/wjsoft08/timestream-query
+Author: Woojin Kang
+License: MIT License
+Classifier: Development Status :: 1 - Planning
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Timestream Query
+
+This repository contains a Timestream Utility class to query data from Timestream to Object array easily.
+
+# Example Usage
+```
+region = "us-west-2"
+session = boto3.Session()
+database = "YOUR_DATABASE"
+table = "YOUR_TABLE"
+query_client = session.client("timestream-query", config=Config(region_name=region))
+query_util = QueryUtil(query_client, database, table)
+query_string = f"SELECT Id FROM {database}.{table} WHERE time >= ago(24h)"
+
+# Run Query
+id_list = query_util.run_query(query_string, True)
+
+```
