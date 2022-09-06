@@ -33,8 +33,8 @@ class QueryUtil:
     def __parse_query_result(self, query_result, obj=False):
         column_info = query_result["ColumnInfo"]
 
-        # print("Metadata: %s" % column_info)
-        print("Data: ")
+        print("Metadata: %s" % column_info)
+#         print("Data: ")
         data = []
         for row in query_result["Rows"]:
             if obj == True:
