@@ -4,9 +4,10 @@ import traceback
 
 
 class QueryUtil:
-    def __init__(self, client, database_name, table_name):
+    def __init__(self, client, database_name, table_name, disable_data_print=False):
         self.client = client
         self.paginator = client.get_paginator("query")
+        self.disable_data_print = disable_data_print
 
         # See records ingested into this table so far
         self.SELECT_ALL = "SELECT * FROM " + database_name + "." + table_name
@@ -34,7 +35,8 @@ class QueryUtil:
         column_info = query_result["ColumnInfo"]
 
         # print("Metadata: %s" % column_info)
-        print("Data: ")
+        if not self.disable_data_print:
+            print("Data: ")
         data = []
         for row in query_result["Rows"]:
             if obj == True:
